@@ -22,62 +22,74 @@ class HistorySearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 70,
-      child: ListView.builder(
-        itemCount: items.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          final data = items[index];
-          return InkWell(
-            onTap: () {},
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Recently Search',
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff161D23),
-                  ),
-                ),
-                SizedBox(height: 10),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 243, 243, 243),
-                    borderRadius: BorderRadius.circular(25),
-                    border: Border.all(
-                      color: Colors.grey.withOpacity(0.5),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      children: [
-                        Text(
-                          data.name,
-                          style: GoogleFonts.poppins(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff2C4B6C),
-                          ),
-                        ),
-                        SizedBox(width: 3),
-                        Icon(
-                          CupertinoIcons.xmark,
-                          color: Color(0xff2C4B6C),
-                          size: 10,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5),
-              ],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Recently Search',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff161D23),
+              ),
             ),
-          );
-        },
+            SizedBox(height: 10),
+            SizedBox(
+              height: 50,
+              child: ListView.builder(
+                itemCount: items.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  final data = items[index];
+                  return InkWell(
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 243, 243, 243),
+                              borderRadius: BorderRadius.circular(25),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(0.5),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    data.name,
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff2C4B6C),
+                                    ),
+                                  ),
+                                  SizedBox(width: 3),
+                                  Icon(
+                                    CupertinoIcons.xmark,
+                                    color: Color(0xff2C4B6C),
+                                    size: 10,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -180,7 +180,7 @@ class Popular extends StatelessWidget {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(10, 25, 10, 0),
+                            padding: const EdgeInsets.all(5),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
