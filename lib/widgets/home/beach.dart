@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel/models/data.dart';
+import 'package:travel/pages/information.dart';
 
 class Beach extends StatelessWidget {
   Beach({super.key});
@@ -54,7 +55,12 @@ class Beach extends StatelessWidget {
         itemBuilder: (context, index) {
           final data = items[index];
           return InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InfoPage()),
+              );
+            },
             child: Container(
               margin: EdgeInsets.all(10),
               width: 320,

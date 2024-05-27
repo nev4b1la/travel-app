@@ -104,14 +104,14 @@ class _NavbarState extends State<Navbar> {
       case 2:
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => NotificationPage()),
+          MaterialPageRoute(builder: (context) => notif()),
           (route) => false,
         );
         break;
       case 3:
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => AccountPage()),
+          MaterialPageRoute(builder: (context) => account()),
           (route) => false,
         );
         break;

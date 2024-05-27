@@ -36,11 +36,24 @@ class _SearchPageState extends State<SearchPage> {
                             color: Color(0xffCCCED3),
                             shape: BoxShape.circle,
                           ),
-                          child: Center(
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.black,
-                              size: 18,
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              height: 40,
+                              width: 42,
+                              decoration: BoxDecoration(
+                                color: Color(0xffCCCED3),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.arrow_back_ios,
+                                  color: Colors.black,
+                                  size: 18,
+                                ),
+                              ),
                             ),
                           ),
                         ),

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel/pages/searchPage.dart';
 import 'package:travel/widgets/bottomNavBar.dart';
 import 'package:travel/widgets/home/beach.dart';
 import 'package:travel/widgets/home/categories.dart';
@@ -96,7 +97,14 @@ class HomePage extends StatelessWidget {
                                       ),
                                       child: Center(
                                         child: TextButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      SearchPage()),
+                                            );
+                                          },
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
