@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:travel/pages/signup.dart';
 
+// ignore: must_be_immutable
 class LandingPage extends StatelessWidget {
+  LandingPage({super.key});
   late Size mediaSize;
 
   @override
@@ -9,79 +12,98 @@ class LandingPage extends StatelessWidget {
     mediaSize = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("lib/images/assets/landing.jpg"),
-              fit: BoxFit.cover)),
+        image: DecorationImage(
+            image: AssetImage("lib/images/assets/landing.jpg"),
+            fit: BoxFit.cover),
+      ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(
           children: [
             Positioned(
               bottom: 0,
-              // child: _buildBottom(),
               child: Container(
-                child: SizedBox(
-                  width: mediaSize.width,
-                  child: Card(
-                    shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
+                width: mediaSize.width,
+                child: Card(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30),
-                    )),
-                    child: Padding(
-                      padding: const EdgeInsets.all(32.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Discover Beautiful",
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 13),
-                            child: Text(
-                              "of Indonesia",
-                              style: TextStyle(
-                                  fontSize: 27, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
-                            child: Text(
-                                "The first step to achieve your best journey!"),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(32.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Discover Beautiful",
+                          style: GoogleFonts.poppins(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff2C4B6C)),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          "of Indonesia",
+                          style: GoogleFonts.poppins(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xff2C4B6C)),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          "The first step to achieve your best journey!",
+                          style: GoogleFonts.poppins(
+                              fontSize: 12, fontWeight: FontWeight.normal),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20),
+                          child: Center(
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignUp()),
+                                );
+                              },
                               style: ElevatedButton.styleFrom(
                                 shape: const StadiumBorder(),
-                                elevation: 20,
-                                backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-                                // shadowColor: Color.fromRGBO(26, 46, 67, 1),
+                                elevation: 5,
+                                backgroundColor: Color(0xff2C4B6C),
                                 minimumSize: const Size.fromHeight(50),
                               ),
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SignUp()),
-                                  );
-                                },
-                                child: const Text(
-                                  "Discover more > >",
-                                  style: TextStyle(
-                                      fontSize: 15,
+                              child: Center(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      "Discover more",
+                                      style: GoogleFonts.poppins(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 12,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold),
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      size: 12,
+                                      color: Colors.white,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -89,67 +111,6 @@ class LandingPage extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildBottom() {
-    return SizedBox(
-      width: mediaSize.width,
-      child: Card(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        )),
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: _buildForm(),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildForm() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Discover Beautiful",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 13),
-          child: Text(
-            "of Indonesia",
-            style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: Text("The first step to achieve your best journey!"),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 20),
-          child: _buildButton(),
-        )
-      ],
-    );
-  }
-
-  Widget _buildButton() {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        elevation: 20,
-        backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-        // shadowColor: Color.fromRGBO(26, 46, 67, 1),
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: const Text(
-        "Discover more > >",
-        style: TextStyle(fontSize: 16, color: Colors.white),
       ),
     );
   }

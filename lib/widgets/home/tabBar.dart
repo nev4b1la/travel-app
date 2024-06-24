@@ -51,7 +51,7 @@ class _MenuuState extends State<Menuu> with SingleTickerProviderStateMixin {
           isScrollable: true,
           indicator: BoxDecoration(
             border: Border(
-              top: BorderSide(
+              bottom: BorderSide(
                 color: Color(0xff2C4B6C),
                 width: 2,
               ),

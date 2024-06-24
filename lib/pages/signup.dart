@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel/models/input.dart';
-import 'package:travel/pages/homePage.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:travel/pages/login.dart';
 import 'package:travel/pages/register.dart';
 
@@ -12,11 +11,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final usernameController = TextEditingController();
-  final etelpController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  void google() {}
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController email = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,171 +21,214 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: Colors.white,
         body: SafeArea(
             child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 100),
-                child: Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Sign up",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Container(
+              child: Column(
+                children: [
+                  Text(
+                    "Sign up",
+                    style: GoogleFonts.poppins(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff161D23)),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        color: Color(0xffC4C4C4),
+                        width: 1,
                       ),
-                      input(
-                        controller: usernameController,
-                        hintText: 'Username',
-                        obscureText: false,
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.name,
+                      controller: username,
+                      decoration: InputDecoration(
+                        hintText: "Username",
+                        hintStyle: GoogleFonts.nunito(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                        border: InputBorder.none,
                       ),
-                      input(
-                        controller: etelpController,
-                        hintText: 'Email/Telephone',
-                        obscureText: false,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        color: Color(0xffC4C4C4),
+                        width: 1,
                       ),
-                      input(
-                        controller: passwordController,
-                        hintText: 'Password',
-                        obscureText: true,
+                    ),
+                    child: TextField(
+                      keyboardType: TextInputType.phone,
+                      controller: email,
+                      decoration: InputDecoration(
+                        hintText: "Phone Number / Email",
+                        hintStyle: GoogleFonts.nunito(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                        border: InputBorder.none,
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(25),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(
+                        color: Color(0xffC4C4C4),
+                        width: 1,
+                      ),
+                    ),
+                    child: TextField(
+                      obscureText: true,
+                      controller: password,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        hintStyle: GoogleFonts.nunito(
+                          color: Colors.grey,
+                          fontSize: 14,
+                        ),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(25),
+                    child: Row(
+                      children: [
+                        Expanded(
+                            child: Divider(
+                          thickness: 1,
+                          color: Colors.black,
+                        )),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            'or',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Expanded(
+                            child: Divider(
+                          thickness: 1,
+                          color: Colors.black,
+                        ))
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        shape: const StadiumBorder(),
+                        elevation: 5,
+                        backgroundColor: Color.fromARGB(255, 247, 246, 246),
+                        minimumSize: const Size.fromHeight(50),
+                      ),
+                      child: Center(
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Expanded(
-                                child: Divider(
-                              thickness: 1,
-                              color: Colors.black,
-                            )),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              child: Text(
-                                '   or   ',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                            Image.asset(
+                              "lib/images/Popular/search.png",
+                              height: 20,
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "Continue with Google",
+                              style: GoogleFonts.poppins(
+                                color: Colors.black,
+                                fontSize: 15,
                               ),
                             ),
-                            Expanded(
-                                child: Divider(
-                              thickness: 1,
-                              color: Colors.black,
-                            ))
                           ],
                         ),
                       ),
-                      Padding(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          child: ContinueWithGoogle()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Already have account?",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Login()),
-                                  );
-                                },
-                                child: const Text(
-                                  "Log in",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.underline),
-                                ),
-                              ),
-                            ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already have account?",
+                            style: GoogleFonts.poppins(fontSize: 14),
                           ),
-                        ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Login()),
+                              );
+                            },
+                            child: Text(
+                              "Log in",
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.blue,
+                                decorationThickness: 2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Register()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: const StadiumBorder(),
+                  elevation: 5,
+                  backgroundColor: Color(0xff2C4B6C),
+                  minimumSize: const Size.fromHeight(50),
+                ),
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Sign Up",
+                        style: GoogleFonts.poppins(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 15, left: 20, right: 20),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: const StadiumBorder(),
-                    elevation: 20,
-                    backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-                    // shadowColor: Color.fromRGBO(26, 46, 67, 1),
-                    minimumSize: const Size.fromHeight(50),
-                  ),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Register()),
-                      );
-                    },
-                    child: const Text(
-                      "Sign Up",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        )));
-  }
-
-  Widget ContinueWithGoogle() {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        elevation: 20,
-        backgroundColor: Color.fromARGB(255, 204, 206, 211),
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            "lib/images/assets/google.jpg",
-            height: 17,
-          ),
-          Text(
-            "  Continue with Google",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget SignUp() {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        elevation: 20,
-        backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-        // shadowColor: Color.fromRGBO(26, 46, 67, 1),
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: const Text(
-        "Sign up",
-        style: TextStyle(fontSize: 16, color: Colors.white),
-      ),
-    );
+            )
+          ]),
+        ))));
   }
 }

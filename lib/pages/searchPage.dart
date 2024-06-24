@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel/pages/homePage.dart';
 import 'package:travel/widgets/bottomNavBar.dart';
 import 'package:travel/widgets/search/categorySearch.dart';
 import 'package:travel/widgets/search/historySearch.dart';
@@ -38,7 +39,10 @@ class _SearchPageState extends State<SearchPage> {
                           ),
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomePage()));
                             },
                             child: Container(
                               height: 40,

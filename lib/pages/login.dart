@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel/models/input.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:travel/pages/homePage.dart';
 import 'package:travel/pages/signup.dart';
 
@@ -7,59 +7,105 @@ class Login extends StatefulWidget {
   Login({super.key});
 
   @override
-  State<Login> createState() => _SignUpState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignUpState extends State<Login> {
-  final etelpController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  void google() {}
+class _LoginState extends State<Login> {
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-            child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 100),
-                child: Container(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
                   child: Column(
                     children: [
                       Text(
-                        "Welcome!",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                        "Welcome !",
+                        style: GoogleFonts.poppins(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff161D23)),
                       ),
-                      input(
-                        controller: etelpController,
-                        hintText: 'Email/Telephone',
-                        obscureText: false,
+                      SizedBox(height: 20),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: Color(0xffC4C4C4),
+                            width: 1,
+                          ),
+                        ),
+                        child: TextField(
+                          keyboardType: TextInputType.name,
+                          controller: username,
+                          decoration: InputDecoration(
+                            hintText: "Username",
+                            hintStyle: GoogleFonts.nunito(
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
+                            border: InputBorder.none,
+                          ),
+                        ),
                       ),
-                      input(
-                        controller: passwordController,
-                        hintText: 'Password',
-                        obscureText: true,
+                      SizedBox(height: 20),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: Color(0xffC4C4C4),
+                            width: 1,
+                          ),
+                        ),
+                        child: TextField(
+                          obscureText: true,
+                          controller: password,
+                          decoration: InputDecoration(
+                            hintText: "Password",
+                            hintStyle: GoogleFonts.nunito(
+                              color: Colors.grey,
+                              fontSize: 14,
+                            ),
+                            border: InputBorder.none,
+                          ),
+                        ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 200),
-                        child: TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              "Forgot password?",
-                              style: TextStyle(
-                                  fontSize: 15,
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Forgot Password?",
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
                                   color: Colors.blue,
                                   fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
-                            )),
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.blue,
+                                  decorationThickness: 2,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(25),
+                        padding: EdgeInsets.all(15),
                         child: Row(
                           children: [
                             Expanded(
@@ -71,7 +117,7 @@ class _SignUpState extends State<Login> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                '   or   ',
+                                'or',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ),
@@ -83,117 +129,107 @@ class _SignUpState extends State<Login> {
                           ],
                         ),
                       ),
-                      Padding(
-                          padding: EdgeInsets.only(left: 20, right: 20),
-                          child: ContinueWithGoogle()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Don't have account?",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SignUp()),
-                                  );
-                                },
-                                child: const Text(
-                                  "Sign Up",
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.blue,
-                                      fontWeight: FontWeight.bold,
-                                      decoration: TextDecoration.underline),
+                      Container(
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            shape: const StadiumBorder(),
+                            elevation: 5,
+                            backgroundColor: Color.fromARGB(255, 247, 246, 246),
+                            minimumSize: const Size.fromHeight(50),
+                          ),
+                          child: Center(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "lib/images/Popular/search.png",
+                                  height: 20,
                                 ),
-                              ),
-                            ],
+                                SizedBox(width: 10),
+                                Text(
+                                  "Continue with Google",
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.black,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(bottom: 15, left: 20, right: 20),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    shape: const StadiumBorder(),
-                    elevation: 20,
-                    backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-                    // shadowColor: Color.fromRGBO(26, 46, 67, 1),
-                    minimumSize: const Size.fromHeight(50),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 15, left: 20, right: 20),
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an Account?",
+                          style: GoogleFonts.poppins(fontSize: 12),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignUp()),
+                            );
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.blue,
+                              decorationThickness: 2,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  child: TextButton(
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     },
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
+                    style: ElevatedButton.styleFrom(
+                      shape: const StadiumBorder(),
+                      elevation: 5,
+                      backgroundColor: Color(0xff2C4B6C),
+                      minimumSize: const Size.fromHeight(50),
+                    ),
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "Log In",
+                            style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              )
-            ],
-          ),
-        )));
-  }
-
-  Widget ContinueWithGoogle() {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        elevation: 20,
-        backgroundColor: Color.fromARGB(255, 204, 206, 211),
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: Row(
-        children: [
-          Image.asset(
-            "lib/images/assets/google.jpg",
-            height: 17,
-          ),
-          Text(
-            "  Continue with Google",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
+              ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-
-  Widget login() {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        elevation: 20,
-        backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-        // shadowColor: Color.fromRGBO(26, 46, 67, 1),
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: const Text(
-        "Log in",
-        style: TextStyle(fontSize: 16, color: Colors.white),
+        ),
       ),
     );
   }

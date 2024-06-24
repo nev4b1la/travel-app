@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:travel/widgets/bottomNavBar.dart';
 
 class notif extends StatelessWidget {
@@ -21,7 +22,8 @@ class notif extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 15),
                   child: Text(
                     "Notifications",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: GoogleFonts.poppins(
+                        fontSize: 25, fontWeight: FontWeight.bold),
                   ),
                 )
               ],
@@ -34,8 +36,8 @@ class notif extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: Text(
                       "Unread",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                      style: GoogleFonts.poppins(
+                          fontSize: 20, fontWeight: FontWeight.w700),
                     ),
                   ),
                   Padding(
@@ -43,8 +45,8 @@ class notif extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          width: 55,
-                          height: 55,
+                          width: 50,
+                          height: 50,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -59,7 +61,8 @@ class notif extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 20, left: 15),
                               child: Text(
                                 "  Have you ever go to Nusa Penida?",
-                                style: TextStyle(fontWeight: FontWeight.w700),
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w700, fontSize: 13),
                               ),
                             ),
                             Padding(
@@ -70,16 +73,21 @@ class notif extends StatelessWidget {
                                       onPressed: () {},
                                       child: Text(
                                         "Let's check it out!",
-                                        style: TextStyle(
-                                            height: 0,
-                                            // color: Colors.blue,
-                                            fontWeight: FontWeight.bold,
-                                            decoration:
-                                                TextDecoration.underline),
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 12,
+                                          color: Color(0xff2C4B6C),
+                                          fontWeight: FontWeight.w600,
+                                          decoration: TextDecoration.underline,
+                                          decorationColor: Color(0xff2C4B6C),
+                                          decorationThickness: 2,
+                                        ),
                                       )),
                                   Text(
                                     "3h",
-                                    style: TextStyle(color: Colors.grey),
+                                    style: GoogleFonts.poppins(
+                                      color: Colors.grey,
+                                      fontSize: 12,
+                                    ),
                                   )
                                 ],
                               ),
@@ -93,26 +101,30 @@ class notif extends StatelessWidget {
                       padding: EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
-                          Container(
-                            alignment: Alignment.bottomLeft,
-                            width: 80,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: const AssetImage(
-                                        "lib/images/assets/NusaPenida.jpg"),
-                                    fit: BoxFit.cover)),
-                            child: Container(
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: const AssetImage(
-                                          "lib/images/assets/NusaPenida.jpg"),
-                                      fit: BoxFit.cover)),
-                            ),
+                          Column(
+                            children: [
+                              Container(
+                                alignment: Alignment.bottomLeft,
+                                width: 80,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    image: DecorationImage(
+                                        image: const AssetImage(
+                                            "lib/images/assets/NusaPenida.jpg"),
+                                        fit: BoxFit.cover)),
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: const AssetImage(
+                                              "lib/images/assets/NusaPenida.jpg"),
+                                          fit: BoxFit.cover)),
+                                ),
+                              ),
+                            ],
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 0),
@@ -123,20 +135,26 @@ class notif extends StatelessWidget {
                                   padding: const EdgeInsets.only(top: 5),
                                   child: Text(
                                     "Oh my God! Look at this magic!",
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.w700),
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 13),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(top: 15),
                                   child: Row(
                                     children: [
-                                      Text("Most beautiful place in Indonesia"),
+                                      Text(
+                                        "Most beautiful place in Indonesia",
+                                        style:
+                                            GoogleFonts.poppins(fontSize: 12),
+                                      ),
                                       Padding(
                                         padding: const EdgeInsets.only(left: 5),
                                         child: Text(
                                           "1d",
-                                          style: TextStyle(color: Colors.grey),
+                                          style: GoogleFonts.poppins(
+                                              color: Colors.grey, fontSize: 12),
                                         ),
                                       )
                                     ],
@@ -160,14 +178,14 @@ class notif extends StatelessWidget {
                       children: [
                         Text(
                           "Already",
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                               color: Color.fromARGB(255, 60, 94, 130),
                               fontWeight: FontWeight.w700,
                               fontSize: 20),
                         ),
                         Text(
                           " Read",
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
                               fontSize: 20),
@@ -182,8 +200,8 @@ class notif extends StatelessWidget {
                         children: [
                           Container(
                               alignment: Alignment.center,
-                              width: 55,
-                              height: 55,
+                              width: 50,
+                              height: 50,
                               decoration: const BoxDecoration(
                                   color: Color.fromRGBO(60, 94, 130, 0.500),
                                   shape: BoxShape.circle),
@@ -193,8 +211,8 @@ class notif extends StatelessWidget {
                                 height: 50,
                                 child: SvgPicture.asset(
                                   "lib/images/assets/discon.svg",
-                                  width: 20,
-                                  height: 20,
+                                  width: 15,
+                                  height: 15,
                                 ),
                               )),
                           Column(
@@ -205,7 +223,9 @@ class notif extends StatelessWidget {
                                     const EdgeInsets.only(top: 20, left: 5),
                                 child: Text(
                                   "   Hi Jennie! We have special disc...",
-                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13),
                                 ),
                               ),
                               Padding(
@@ -213,18 +233,25 @@ class notif extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     TextButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Check it out!",
-                                          style: TextStyle(
-                                              height: 0,
-                                              fontWeight: FontWeight.bold,
-                                              decoration:
-                                                  TextDecoration.underline),
-                                        )),
+                                      onPressed: () {},
+                                      child: Text(
+                                        "Check it out!",
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 12,
+                                          color: Color(0xff2C4B6C),
+                                          fontWeight: FontWeight.w600,
+                                          decoration: TextDecoration.underline,
+                                          decorationColor: Color(0xff2C4B6C),
+                                          decorationThickness: 2,
+                                        ),
+                                      ),
+                                    ),
                                     Text(
                                       "1w",
-                                      style: TextStyle(color: Colors.grey),
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                      ),
                                     )
                                   ],
                                 ),
@@ -242,8 +269,8 @@ class notif extends StatelessWidget {
                         children: [
                           Container(
                               alignment: Alignment.center,
-                              width: 55,
-                              height: 55,
+                              width: 50,
+                              height: 50,
                               decoration: const BoxDecoration(
                                   color: Color.fromRGBO(60, 94, 130, 0.500),
                                   shape: BoxShape.circle),
@@ -253,8 +280,8 @@ class notif extends StatelessWidget {
                                 height: 50,
                                 child: SvgPicture.asset(
                                   "lib/images/assets/signup.svg",
-                                  width: 20,
-                                  height: 20,
+                                  width: 15,
+                                  height: 15,
                                 ),
                               )),
                           Column(
@@ -265,7 +292,9 @@ class notif extends StatelessWidget {
                                     const EdgeInsets.only(top: 20, left: 5),
                                 child: Text(
                                   "   Hi Jennie! Welcome to the journey.",
-                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13),
                                 ),
                               ),
                               Padding(
@@ -273,18 +302,25 @@ class notif extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     TextButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Sign up successfully",
-                                          style: TextStyle(
-                                              height: 0,
-                                              fontWeight: FontWeight.bold,
-                                              decoration:
-                                                  TextDecoration.underline),
-                                        )),
+                                      onPressed: () {},
+                                      child: Text(
+                                        "Sign up successfully",
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 12,
+                                          color: Color(0xff2C4B6C),
+                                          fontWeight: FontWeight.w600,
+                                          decoration: TextDecoration.underline,
+                                          decorationColor: Color(0xff2C4B6C),
+                                          decorationThickness: 2,
+                                        ),
+                                      ),
+                                    ),
                                     Text(
                                       "3w",
-                                      style: TextStyle(color: Colors.grey),
+                                      style: GoogleFonts.poppins(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                      ),
                                     )
                                   ],
                                 ),

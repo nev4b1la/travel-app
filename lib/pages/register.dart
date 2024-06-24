@@ -1,15 +1,14 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:travel/pages/login.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:travel/pages/homePage.dart';
 
 class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: SafeArea(
-            child: Center(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -20,15 +19,15 @@ class Register extends StatelessWidget {
                     children: [
                       Text(
                         "Register Complete!",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.w900),
+                        style: GoogleFonts.poppins(
+                            fontSize: 24, fontWeight: FontWeight.w900),
                       ),
                       Container(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 15),
                           child: Text(
                             "You successfully to create your account",
-                            style: TextStyle(fontSize: 15),
+                            style: GoogleFonts.poppins(fontSize: 14),
                           ),
                         ),
                       ),
@@ -36,22 +35,22 @@ class Register extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 30),
                         child: Container(
                           alignment: Alignment.center,
-                          width: 170,
-                          height: 170,
+                          width: 200,
+                          height: 200,
                           decoration: const BoxDecoration(
                               color: Color.fromRGBO(44, 75, 108, 0.350),
                               shape: BoxShape.circle),
                           child: Container(
                             alignment: Alignment.center,
-                            width: 120,
-                            height: 120,
+                            width: 150,
+                            height: 150,
                             decoration: const BoxDecoration(
                                 color: Color.fromRGBO(44, 75, 108, 0.300),
                                 shape: BoxShape.circle),
                             child: Container(
                               alignment: Alignment.center,
-                              width: 120,
-                              height: 120,
+                              width: 150,
+                              height: 150,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
                                       image: const AssetImage(
@@ -67,49 +66,48 @@ class Register extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: 15, left: 20, right: 20),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     shape: const StadiumBorder(),
                     elevation: 20,
-                    backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-                    // shadowColor: Color.fromRGBO(26, 46, 67, 1),
+                    backgroundColor: Color(0xff2C4B6C),
                     minimumSize: const Size.fromHeight(50),
                   ),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Login()),
-                      );
-                    },
-                    child: const Text(
-                      "Explore More >>",
-                      style: TextStyle(
-                          fontSize: 15,
+                  child: Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "Discover more",
+                          style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(width: 8),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 12,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 12,
+                          color: Colors.white,
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
-        )));
-  }
-
-  Widget _buildButton() {
-    return ElevatedButton(
-      onPressed: () {},
-      style: ElevatedButton.styleFrom(
-        shape: const StadiumBorder(),
-        elevation: 20,
-        backgroundColor: Color.fromRGBO(29, 60, 91, 1),
-        // shadowColor: Color.fromRGBO(26, 46, 67, 1),
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: const Text(
-        "Explore more > >",
-        style: TextStyle(fontSize: 16, color: Colors.white),
+        ),
       ),
     );
   }
